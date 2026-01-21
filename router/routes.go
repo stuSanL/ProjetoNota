@@ -7,11 +7,14 @@ import (
 )
 
 func InitializeRoutes(router *gin.Engine) {
+
+	handler.Initialize()
+
 	v := router.Group("/api/")
 	{
 		v.GET("/notas", handler.GetNotasHandler)
 		v.GET("/nota/:id", handler.GetNotaHandler)
-		v.POST("/notas", handler.AddNotaHandler)
+		v.POST("/addNota", handler.AddNotaHandler)
 	}
 
 }

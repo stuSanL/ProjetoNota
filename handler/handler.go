@@ -1,15 +1,15 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"ProjetoNota/config"
 
-func GetNotasHandler(ctx *gin.Context) {
+	"gorm.io/gorm"
+)
 
-}
+var (
+	db *gorm.DB
+)
 
-func GetNotaHandler(ctx *gin.Context) {
-
-}
-
-func AddNotaHandler(ctx *gin.Context) {
-	
+func Initialize() {
+	db = config.GetSQLite()
 }
