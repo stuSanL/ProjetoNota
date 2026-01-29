@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetNotaHandler(ctx *gin.Context) {
+func DeleteNotaHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if id == "" {
 		SendError(ctx, http.StatusBadRequest, errRequiredParam("id", "queryParam").Error())
@@ -22,5 +22,10 @@ func GetNotaHandler(ctx *gin.Context) {
 		return
 	}
 
-	SendSuccess(ctx, "get-nota-"+id, nota)
+	if err := db.Delete(&nota).Error; err != nil {
+		SendError(ctx, http.StatusInternalServerError, fmt.Sprintf("Erro ao deletar nota %s", id))
+		return
+	}
+
+	SendSuccess(ctx, "delete-nota", id)
 }

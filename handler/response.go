@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"ProjetoNota/schemas"
 	"fmt"
 	"net/http"
 
@@ -21,4 +22,14 @@ func SendSuccess(ctx *gin.Context, op string, data interface{}) {
 		"message": fmt.Sprintf("operation from handler: %s successfull", op),
 		"data":    data,
 	})
+}
+
+type ErrorResponse struct {
+	Message   string `json:"message"`
+	ErrorCode string `json:"error_code"`
+}
+
+type AddNotaResponse struct {
+	Message string               `json:"message"`
+	Data    schemas.NotaResponse `json:"data"`
 }

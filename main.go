@@ -13,6 +13,6 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	router.Initialize()
 
+	router.Initialize()
 }

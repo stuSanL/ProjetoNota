@@ -4,12 +4,25 @@ import (
 	"ProjetoNota/schemas"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
+// @BasePath /api
+
+// @Summary Add nota
+// @Description Adciciona uma nova nota
+// @Tags Notas
+// @Accept json
+// @Produce json
+// @Param request body AddNotaRequest true "Request Body"
+// @Success 200 {object} AddOpeningResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /nota/add [post]
 func AddNotaHandler(ctx *gin.Context) {
-	request := CreateNotaRequest{}
+	request := AddNotaRequest{}
 	ctx.BindJSON(&request)
 
 	if err := request.Validate(); err != nil {
@@ -19,7 +32,7 @@ func AddNotaHandler(ctx *gin.Context) {
 	}
 
 	nota := schemas.Nota{
-		Data:      request.Data,
+		Data:      time.Now(),
 		Pontuacao: *request.Pontuacao,
 		Texto:     request.Texto,
 	}
