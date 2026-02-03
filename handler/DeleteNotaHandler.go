@@ -8,6 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Summary Deleta nota
+// @Description Deleta uma nota existente
+// @Tags Notas
+// @Accept json
+// @Produce json
+// @Param id query int true "Id da nota a ser deletada"
+// @Success 200 {string} string "ID"
+// @Router /nota/delete [delete]
 func DeleteNotaHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if id == "" {

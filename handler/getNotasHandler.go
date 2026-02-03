@@ -8,6 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// GetNotasHandler @Summary Obter notas
+// @Description Lista todas as notas
+// @Tags Notas
+// @Accept json
+// @Produce json
+// @Success 200 {array} schemas.NotaResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /notas [get]
 func GetNotasHandler(ctx *gin.Context) {
 	var notas []schemas.Nota
 	if err := db.Find(&notas).Error; err != nil {

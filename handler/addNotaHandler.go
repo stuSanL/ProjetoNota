@@ -9,15 +9,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// @BasePath /api
-
-// @Summary Add nota
-// @Description Adciciona uma nova nota
+// @Summary Adiciona nota
+// @Description Adiciona uma nova nota
 // @Tags Notas
 // @Accept json
 // @Produce json
 // @Param request body AddNotaRequest true "Request Body"
-// @Success 200 {object} AddOpeningResponse
+// @Success 200 {object} AddNotaResponse
 // @Failure 400 {object} ErrorResponse
 // @Failure 500 {object} ErrorResponse
 // @Router /nota/add [post]

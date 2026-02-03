@@ -8,6 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// GetNotaHandler @Summary Obter nota
+// @Description Acha uma nota conforme id
+// @Tags Notas
+// @Accept json
+// @Produce json
+// @Param id query int true "Id da nota a ser buscada"
+// @Success 200 {object} schemas.NotaResponse
+// @Failure 400 {object} ErrorResponse
+// @Router /nota [get]
 func GetNotaHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if id == "" {

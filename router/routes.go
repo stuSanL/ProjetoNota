@@ -9,6 +9,10 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
+// @title ProjetoNota
+// @version 1.0
+// @description Projeto de "bloco de notas" para estudo
+// @host localhost:8081
 func InitializeRoutes(router *gin.Engine) {
 
 	handler.Initialize()
